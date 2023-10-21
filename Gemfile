@@ -61,4 +61,8 @@ group :development do
   gem 'rubocop-rails', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 6.0.0'
+end
+
 gem "tailwindcss-rails", "~> 2.0"

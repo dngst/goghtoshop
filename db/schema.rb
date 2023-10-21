@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_21_103622) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.string "session_id"
-    t.string "stripe_checkout_id"
+    t.string "session_id", null: false
+    t.string "stripe_checkout_id", null: false
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

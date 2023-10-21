@@ -7,6 +7,9 @@
 
     <div class="space-x-6">
       <%= link_to "Cart" %>
+      <% if current_user&.admin? %>
+        <%= link_to "Admin", admin_root_path %>
+      <% end %>
     </div>
   </div>
 </nav>

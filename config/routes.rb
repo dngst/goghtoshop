@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, skip: [:registrations]
+  namespace :admin do
+      resources :orders
+      resources :products
+
+      root to: "orders#index"
+    end
   resources :products, only: [:index, :show]
   resource :checkout, only: :show
   resource :payments, only: :show

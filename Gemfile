@@ -75,3 +75,7 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'faker', '~> 3.2'
 
 gem 'stripe', '~> 10.0'
+
+gem "administrate", "~> 0.19.0"
+
+gem "devise", "~> 4.9"

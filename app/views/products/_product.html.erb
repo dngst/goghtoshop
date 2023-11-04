@@ -4,12 +4,17 @@
   </p>
 
   <p class="my-5">
-    $<%= product.price %>
+    <%= number_to_currency(product.price, unit: '$ ') %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Purchase", checkout_path(id: product), class: "rounded-lg py-3 px-5 text-green-500 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "View product", product, class: "rounded-lg py-3 px-5 underline inline-block font-medium" %>
+    <%= link_to "Purchase", checkout_path(id: product),
+      class: "rounded-lg py-3 px-5 text-green-600 bg-gray-100 inline-block font-medium",
+      data: { turbo_frame: "_top" } %>
+
+    <%= link_to "View product", product,
+      class: "rounded-lg py-3 px-5 underline inline-block font-medium",
+       data: { turbo_frame: "_top" } %>
     <hr class="mt-6">
   <% end %>
 </div>

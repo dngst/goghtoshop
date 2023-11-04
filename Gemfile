@@ -56,7 +56,7 @@ group :development do
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem 'rack-mini-profiler'
 
   gem 'spring'
 
@@ -76,6 +76,8 @@ gem 'faker', '~> 3.2'
 
 gem 'stripe', '~> 10.0'
 
-gem "administrate", "~> 0.19.0"
+gem 'administrate', '~> 0.19.0'
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
+
+gem 'pagy', '~> 6.1'

@@ -1,9 +1,14 @@
 class ProductsController < ApplicationController
+  include Pagy::Backend
+
   before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    ids = Rails.cache.fetch('product_ids') do
+      Product.pluck(:id)
+    end
+    @pagy, @products = pagy(Product.where(id: ids))
   end
 
   # GET /products/1 or /products/1.json
@@ -23,6 +28,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        Rails.cache.delete('product_ids')
         format.html { redirect_to product_url(@product), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -36,6 +42,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
+        Rails.cache.delete('product_ids')
         format.html { redirect_to product_url(@product), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -48,6 +55,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1 or /products/1.json
   def destroy
     @product.destroy!
+    Rails.cache.delete('product_ids')
 
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }

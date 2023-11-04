@@ -10,7 +10,7 @@ module Admin
     before_action :authorize_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      # TODO: Add authentication logic here.
     end
 
     # Override this value to specify the number of elements to display at a time
@@ -22,9 +22,9 @@ module Admin
     private
 
     def authorize_admin
-      unless current_user.admin?
-        redirect_to root_path, alert: "Access denied"
-      end
+      return if current_user.admin?
+
+      redirect_to root_path, alert: 'Access denied'
     end
   end
 end

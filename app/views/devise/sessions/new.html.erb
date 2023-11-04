@@ -14,7 +14,7 @@
 
     <% if devise_mapping.rememberable? %>
       <div class="mb-4">
-        <%= f.check_box :remember_me, class: "mr-2 border rounded hover:cursor-pointer" %>
+        <%= f.check_box :remember_me, class: "mr-2 border rounded hover:cursor-pointer", checked: true %>
         <%= f.label :remember_me, class: "text-gray-800" %>
       </div>
     <% end %>

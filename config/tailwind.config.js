@@ -12,6 +12,12 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: '#3AA7CF',
+        notice: '#01AE63',
+        alert: '#e6e600',
+        scrollbar: '#AAC1DF'
+      }
     },
   },
   plugins: [

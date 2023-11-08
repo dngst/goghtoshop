@@ -8,13 +8,22 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Purchase", checkout_path(id: product),
-      class: "rounded-lg py-3 px-5 text-green-600 bg-gray-100 inline-block font-medium",
-      data: { turbo_frame: "_top" } %>
+
+    <div class="flex">
+    <%= link_to checkout_path(id: product),
+      class: "rounded-lg py-3 px-5 text-green-600 bg-gray-100 inline-block font-medium flex justify-normal",
+      data: { turbo_frame: "_top" } do %>
+      <% cache ('bx-shopping-bag.svg') do %>
+        <%= image_tag 'bx-shopping-bag.svg', class: 'w-6 mr-2 hidden lg:flex' %>
+      <% end %>
+      Purchase
+    <% end %>
+
 
     <%= link_to "View product", product,
       class: "rounded-lg py-3 px-5 underline inline-block font-medium",
        data: { turbo_frame: "_top" } %>
+  </div>
     <hr class="mt-6">
   <% end %>
 </div>

@@ -15,7 +15,7 @@ module.exports = {
       colors: {
         primary: '#3AA7CF',
         notice: '#01AE63',
-        alert: '#e6e600',
+        alert: '#CCCC00',
         scrollbar: '#AAC1DF'
       }
     },

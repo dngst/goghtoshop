@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <%= render "layouts/head" %>
+    <%= render "layouts/head" %>
   </head>
   <body>
     <%= render "layouts/nav" %>
-
     <main class="container mx-auto mt-28 px-5">
-      <%= render "layouts/flash" %>
-
+      <div class="flash" data-turbo-temporary>
+        <%= render "layouts/flash" %>
+      </div>
       <%= yield %>
     </main>
   </body>
